@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 
 // sort
 router.post('/', (req, res) => {
+  console.log('sort');
   let selectedSort = {
     asc: false,
     desc: false,
@@ -49,6 +50,7 @@ router.post('/', (req, res) => {
 
 // search get 
 router.get('/search', (req, res) => {
+  console.log('search get');
   console.log(req.query.keyword)
   if (!req.query.keyword) {
     res.redirect('/')
@@ -98,6 +100,7 @@ router.get('/search', (req, res) => {
 
 // search post 
 router.post('/search', (req, res) => {
+  console.log('search post')
   console.log(req.query.keyword)
   if (!req.query.keyword) {
     res.redirect('/')
@@ -140,7 +143,7 @@ router.post('/search', (req, res) => {
         restaurant.name_en.toLowerCase().includes(keyword) ||
         restaurant.category.toLowerCase().includes(keyword)
       )
-      res.render('index', { restaurants: filteredRestaurant, keyword })
+      res.render('index', { restaurants: filteredRestaurant, selectedSort, keyword })
     })
     .catch(err => console.log(err))
 })
