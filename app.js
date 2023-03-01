@@ -15,5 +15,5 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(routes)  // 這個要放最後  不然routes讀不到
 app.listen(port, () => {
-  console.log(`Express is running on http//localhost${port}`)
+  console.log(`Express is running on http://localhost${port}`)
 })
